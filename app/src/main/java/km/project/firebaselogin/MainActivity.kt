@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //GoogleSignInOptions 옵션을 관리해주는 클래스로 API 키값과 요청할 값이 저장되어 있다.
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -46,7 +45,6 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == SIGN_IN && resultCode == Activity.RESULT_OK) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data) ?: return
-            print(result)
             if (result.isSuccess) {
                 val account = result.signInAccount
                 googleLogin(account)
@@ -66,8 +64,8 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     showAlertDialog()
                 }
-            }.addOnFailureListener {exception ->
-                Toast.makeText(this,exception.toString(),Toast.LENGTH_SHORT)
+            }.addOnFailureListener { exception ->
+                Toast.makeText(this, exception.toString(), Toast.LENGTH_SHORT)
             }
     }
 
@@ -78,8 +76,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun showAlertDialog() {
         AlertDialog.Builder(this).apply {
-            setMessage("잠시 후 시도해 주세요.")
-            setPositiveButton("확인", null)
+            setMessage(getString(R.string.try_login))
+            setPositiveButton(getString(R.string.confirm), null)
             show()
         }
         moveMain(this, null)

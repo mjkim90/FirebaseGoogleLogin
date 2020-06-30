@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FirebaseLogin</string>
+    <string name="logout">로그아웃</string>
+    <string name="exit">화원탈</string>퇴
+    <string name="confirm">확인</string>
+    <string name="try_login">잠시 후 시도해 주세요.</string>
 </resources>

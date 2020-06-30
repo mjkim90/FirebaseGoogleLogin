@@ -25,13 +25,13 @@ class LoginDetailActivity : Activity() {
     private fun signOut() {
         auth.signOut()
         MainActivity.startMainActivity(this)
-        Toast.makeText(this, "로그아웃", Toast.LENGTH_SHORT)
+        Toast.makeText(this, getString(R.string.logout), Toast.LENGTH_SHORT)
     }
 
     @SuppressLint("ShowToast")
     private fun signExit() {
         auth.currentUser?.delete()
-        Toast.makeText(this, "회원탈퇴", Toast.LENGTH_SHORT)
+        Toast.makeText(this, getString(R.string.exit), Toast.LENGTH_SHORT)
     }
 
     companion object {
